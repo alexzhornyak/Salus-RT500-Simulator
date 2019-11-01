@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>981</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::ActionsContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Salus RT500 - Digital Room Thermostat - Simulator</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="BtnHighLight">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>454</y>
+      <width>78</width>
+      <height>72</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Images/BtnHighlight.png);
+border-image: url(:/Images/BtnHighlight.png);
+image: url(:/Images/BtnHighlight.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frameOutputs">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>131</x>
+      <y>188</y>
+      <width>359</width>
+      <height>194</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(135, 177, 160, 100%);
+border-radius: 10px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <widget class="QLCDNumber" name="lcdMinute">
+     <property name="geometry">
+      <rect>
+       <x>63</x>
+       <y>73</y>
+       <width>100</width>
+       <height>76</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>56</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="digitCount">
+      <number>2</number>
+     </property>
+     <property name="mode">
+      <enum>QLCDNumber::Dec</enum>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>57</number>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="lcdHour">
+     <property name="geometry">
+      <rect>
+       <x>-21</x>
+       <y>73</y>
+       <width>100</width>
+       <height>76</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>56</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="digitCount">
+      <number>2</number>
+     </property>
+     <property name="mode">
+      <enum>QLCDNumber::Dec</enum>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>12</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelAmPm">
+     <property name="geometry">
+      <rect>
+       <x>96</x>
+       <y>148</y>
+       <width>51</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="text">
+      <string>AMPM</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelDayOfWeek">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>17</y>
+       <width>171</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>18</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="text">
+      <string>MTUWTHFSASU</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelSemicolon">
+     <property name="geometry">
+      <rect>
+       <x>63</x>
+       <y>76</y>
+       <width>21</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="text">
+      <string>:</string>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="lcdTempInt">
+     <property name="geometry">
+      <rect>
+       <x>154</x>
+       <y>10</y>
+       <width>151</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>56</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="digitCount">
+      <number>2</number>
+     </property>
+     <property name="mode">
+      <enum>QLCDNumber::Dec</enum>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelDot">
+     <property name="geometry">
+      <rect>
+       <x>296</x>
+       <y>92</y>
+       <width>21</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>48</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="text">
+      <string>.</string>
+     </property>
+    </widget>
+    <widget class="QLCDNumber" name="lcdTempFrac">
+     <property name="geometry">
+      <rect>
+       <x>303</x>
+       <y>77</y>
+       <width>51</width>
+       <height>76</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>56</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="digitCount">
+      <number>1</number>
+     </property>
+     <property name="mode">
+      <enum>QLCDNumber::Dec</enum>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+     <property name="intValue" stdset="0">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelCelcium">
+     <property name="geometry">
+      <rect>
+       <x>301</x>
+       <y>15</y>
+       <width>51</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>38</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="text">
+      <string>°C</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelProgramNo">
+     <property name="geometry">
+      <rect>
+       <x>19</x>
+       <y>49</y>
+       <width>171</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="text">
+      <string>1 2 3 4 5</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelSet">
+     <property name="geometry">
+      <rect>
+       <x>167</x>
+       <y>152</y>
+       <width>51</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="text">
+      <string>SET</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelProg">
+     <property name="geometry">
+      <rect>
+       <x>224</x>
+       <y>152</y>
+       <width>71</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="text">
+      <string>PROG</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelFlame">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>155</y>
+       <width>24</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="salusrt500.qrc">:/Images/IconFlame.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelFreeze">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>156</y>
+       <width>24</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Narrow</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(0,0,0,0%)</string>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="salusrt500.qrc">:/Images/IconSnowFlake.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <zorder>lcdMinute</zorder>
+    <zorder>lcdHour</zorder>
+    <zorder>labelAmPm</zorder>
+    <zorder>labelDayOfWeek</zorder>
+    <zorder>labelSemicolon</zorder>
+    <zorder>lcdTempInt</zorder>
+    <zorder>labelDot</zorder>
+    <zorder>lcdTempFrac</zorder>
+    <zorder>labelCelcium</zorder>
+    <zorder>labelProgramNo</zorder>
+    <zorder>labelSet</zorder>
+    <zorder>labelProg</zorder>
+    <zorder>labelFreeze</zorder>
+    <zorder>labelFlame</zorder>
+   </widget>
+   <widget class="QLabel" name="labelDevice">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>981</width>
+      <height>720</height>
+     </rect>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::ActionsContextMenu</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="salusrt500.qrc">:/Images/Salus_Frame.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnUp">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>162</y>
+      <width>77</width>
+      <height>77</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Images/BtnTempUp.png);
+border-image: url(:/Images/BtnTempUp.png);
+image: url(:/Images/BtnTempUp.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnDown">
+    <property name="geometry">
+     <rect>
+      <x>578</x>
+      <y>332</y>
+      <width>77</width>
+      <height>77</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Images/BtnTempDown.png);
+border-image: url(:/Images/BtnTempDown.png);
+image: url(:/Images/BtnTempDown.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnSelect">
+    <property name="geometry">
+     <rect>
+      <x>765</x>
+      <y>101</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Images/BtnSelect.png);
+border-image: url(:/Images/BtnSelect.png);
+image: url(:/Images/BtnSelect.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnSet">
+    <property name="geometry">
+     <rect>
+      <x>764</x>
+      <y>270</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Images/BtnSelect.png);
+border-image: url(:/Images/BtnSelect.png);
+image: url(:/Images/BtnSelect.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnReset">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>390</y>
+      <width>28</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Images/BtnReset.png);
+border-image: url(:/Images/BtnReset.png);
+image: url(:/Images/BtnReset.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frameInputs">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>540</y>
+      <width>291</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="layoutInputs">
+     <property name="leftMargin">
+      <number>3</number>
+     </property>
+     <property name="rightMargin">
+      <number>3</number>
+     </property>
+     <property name="bottomMargin">
+      <number>3</number>
+     </property>
+     <item>
+      <widget class="QCheckBox" name="CheckPower">
+       <property name="font">
+        <font>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(170, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>Power</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_12">
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>20</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0,0,255)</string>
+       </property>
+       <property name="text">
+        <string>Room temperature, °C</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="SpinTemperature">
+       <property name="font">
+        <font>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="suffix">
+        <string>°C</string>
+       </property>
+       <property name="prefix">
+        <string>+</string>
+       </property>
+       <property name="maximum">
+        <number>30</number>
+       </property>
+       <property name="value">
+        <number>15</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <zorder>labelDevice</zorder>
+   <zorder>frameInputs</zorder>
+   <zorder>BtnHighLight</zorder>
+   <zorder>frameOutputs</zorder>
+   <zorder>BtnUp</zorder>
+   <zorder>BtnDown</zorder>
+   <zorder>BtnSelect</zorder>
+   <zorder>BtnSet</zorder>
+   <zorder>BtnReset</zorder>
+  </widget>
+  <action name="actionInputs_Panel">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Inputs Panel</string>
+   </property>
+  </action>
+  <action name="actionLoad_Program">
+   <property name="text">
+    <string>Load Program</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionSave_Program">
+   <property name="text">
+    <string>Save Program</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="salusrt500.qrc"/>
+ </resources>
+ <connections/>
+</ui>

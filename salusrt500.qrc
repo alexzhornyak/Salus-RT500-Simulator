@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/BtnHighlight.png</file>
+        <file>Images/BtnReset.png</file>
+        <file>Images/BtnSelect.png</file>
+        <file>Images/BtnTempDown.png</file>
+        <file>Images/BtnTempUp.png</file>
+        <file>Images/Salus_Frame.png</file>
+        <file>Images/IconFlame.png</file>
+        <file>Images/IconSnowFlake.png</file>
+    </qresource>
+</RCC>
