@@ -43,10 +43,6 @@ public:
     inline void incrementTemporaryTemperature() { if (_temporaryTemperature < 30.0) _temporaryTemperature+= 0.5; }
     inline void decrementTemporaryTemperature() { if (_temporaryTemperature < 30.0) _temporaryTemperature-= 0.5; }
 
-    inline const int &hour() const { return _hour; }
-    inline const int &minute() const { return _minute; }
-    inline const int &day() const { return _day; }
-
     inline const TemperatureMode temperatureMode() const { return _temperatureMode; }
     inline const double temporaryTemperature() const { return _temporaryTemperature; }
     inline const double freezeTemperature() const { return _freezeTemperature; }
@@ -57,6 +53,10 @@ public:
     inline void flipFreezeTemperatureMode() { _temperatureMode=_temperatureMode==tmdFreeze ? tmdNormal : tmdFreeze; }
 
     /* Day and Time Setup */
+    inline const int &hour() const { return _hour; }
+    inline const int &minute() const { return _minute; }
+    inline const int &day() const { return _day; }
+
     void incrementHour();
     void decrementHour();
 
