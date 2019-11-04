@@ -3,6 +3,7 @@
 
 #include <QFileDialog>
 
+/* this value seems to be the most elegant imitation of button is pressed */
 const int g_BTN_PRESSED_OFFSET = 2;
 
 /*************************************************************************/
@@ -23,6 +24,18 @@ MainWindow::MainWindow(QWidget *parent) :
     _animationFlame->setDuration(500);
     _animationFlame->setLoopCount(-1);
     _animationFlame->setEasingCurve(QEasingCurve::InOutQuad);
+
+    /* imitating freeze mode animation */
+    _animationFreeze = new QPropertyAnimation(ui->labelFreeze, "geometry");
+    auto freezeGeometry = ui->labelFreeze->geometry();
+    _animationFreeze->setStartValue(freezeGeometry);
+    freezeGeometry.setTop(freezeGeometry.top() + 10);
+    freezeGeometry.setLeft(freezeGeometry.left() + 10);
+    freezeGeometry.setRight(freezeGeometry.right() - 10);
+    freezeGeometry.setBottom(freezeGeometry.bottom() - 10);
+    _animationFreeze->setEndValue(freezeGeometry);
+    _animationFreeze->setDuration(1000);
+    _animationFreeze->setLoopCount(-1);
 
     /* all outputs are invisible by default */
     for (auto child : ui->frameOutputs->children()) {
@@ -89,6 +102,7 @@ MainWindow::MainWindow(QWidget *parent) :
            ui->actionSave_Program->setVisible(active);
 
            active ? _animationFlame->start() : _animationFlame->stop();
+           active ? _animationFreeze->start() : _animationFreeze->stop();
     });
 
     _machine->connectToState("DisplayNormal", [this](bool active){
@@ -109,8 +123,6 @@ MainWindow::MainWindow(QWidget *parent) :
             case tmdFreeze:
                 ui->labelFreeze->setVisible(true);
                 ui->labelFlame->setVisible(ui->SpinTemperature->value() < _dataModel->freezeTemperature());
-                ui->lcdTempInt->display(5);
-                ui->lcdTempFrac->display(0);
                 break;
             }
 
@@ -209,6 +221,11 @@ MainWindow::~MainWindow()
     if (_animationFlame) {
         delete _animationFlame;
         _animationFlame = nullptr;
+    }
+
+    if (_animationFreeze) {
+        delete _animationFreeze;
+        _animationFreeze = nullptr;
     }
 
     delete ui;

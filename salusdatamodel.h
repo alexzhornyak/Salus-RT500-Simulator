@@ -48,7 +48,8 @@ public:
     inline const double freezeTemperature() const { return _freezeTemperature; }
     inline const bool isFreezeMode() const { return _temperatureMode==tmdFreeze; }
 
-    void resetTemperature();
+    void resetTemporaryTemperature();
+    inline void setNormalTemperatureMode() { _temperatureMode=tmdNormal; }
     inline void setTemporaryTemperatureMode() { _temperatureMode=tmdTemporary; }
     inline void flipFreezeTemperatureMode() { _temperatureMode=_temperatureMode==tmdFreeze ? tmdNormal : tmdFreeze; }
 
@@ -105,7 +106,7 @@ private:
     int _minute = 0; // 0...59
     int _day = 0; // Day of week: 0 ... 6
 
-    TemperatureMode _temperatureMode = tmdFreeze;
+    TemperatureMode _temperatureMode = tmdNormal;
     double _temporaryTemperature = 15.0f;
     const double _freezeTemperature = 5.0f;
 

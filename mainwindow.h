@@ -42,6 +42,7 @@ private:
     SalusDataModel *_dataModel = nullptr;
 
     QPropertyAnimation *_animationFlame = nullptr;
+    QPropertyAnimation *_animationFreeze = nullptr;
 
     static QString dayOfWeekToDisplayText(const int day);
 };

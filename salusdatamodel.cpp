@@ -47,11 +47,10 @@ std::pair<int/*Number*/,ProgramItem> SalusDataModel::currentProgramItem() const
     return std::make_pair(g_MAX_PROGRAM_ITEMS_COUNT - 1,program[g_MAX_PROGRAM_ITEMS_COUNT - 1]);
 }
 
-void SalusDataModel::resetTemperature()
+void SalusDataModel::resetTemporaryTemperature()
 {
     const auto programItem = this->currentProgramItem();
     _temporaryTemperature = std::get<ItemType::Temperature>(programItem.second);
-    _temperatureMode = tmdNormal;
 }
 
 void SalusDataModel::incrementHour()
