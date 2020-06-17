@@ -18,6 +18,7 @@ TEMPLATE = app
 DEFINES += QT_DEPRECATED_WARNINGS
 
 # Uncomment for external Scxml Editor Debugging
+# https://github.com/alexzhornyak/ScxmlEditor-Tutorial#external-debugging
 #DEFINES += _SCXML_EXTERN_MONITOR_
 
 # You can also make your code fail to compile if you use deprecated APIs.
