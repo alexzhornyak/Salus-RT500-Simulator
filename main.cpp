@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
 #ifdef _SCXML_EXTERN_MONITOR_
-    g_ScxmlStateMachineName = "CalculatorStateMachine";
+    g_ScxmlStateMachineName = "SalusRT500Logic";
     qInstallMessageHandler(myMessageOutput);
     QLoggingCategory::setFilterRules("qt.scxml.statemachine=true");
 #endif
