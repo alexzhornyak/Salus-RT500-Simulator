@@ -179,7 +179,7 @@ MainWindow::MainWindow(QWidget *parent) :
     _machine->connectToEvent("Update.Time", [this](const QScxmlEvent &){
         const int iHour = _dataModel->hour();
         ui->lcdHour->display(iHour > 12 ? (iHour - 12) : iHour);
-        ui->lcdMinute->display(QString().sprintf("%02d",_dataModel->minute()));
+        ui->lcdMinute->display(QString().asprintf("%02d",_dataModel->minute()));
         ui->labelAmPm->setText(iHour>12 ? "  PM" : "AM");
         ui->labelDayOfWeek->setText(dayOfWeekToDisplayText(_dataModel->day()));
     });
@@ -193,7 +193,7 @@ MainWindow::MainWindow(QWidget *parent) :
         const int iMinute = std::get<ItemType::Minute>(_dataModel->programRecordToProgramItem());
 
         ui->lcdHour->display(iHour > 12 ? (iHour - 12) : iHour);
-        ui->lcdMinute->display(QString().sprintf("%02d", iMinute));
+        ui->lcdMinute->display(QString().asprintf("%02d", iMinute));
         ui->labelAmPm->setText(iHour>12 ? "  PM" : "AM");
 
         ui->lcdTempInt->display(floor(dTemp));
@@ -294,7 +294,7 @@ void MainWindow::on_actionLoad_Program_triggered()
         _machine->submitEvent("Program.Reload");
 
     } catch (std::exception &e) {
-        qWarning(e.what());
+        qWarning() << e.what();
     }
 }
 
@@ -308,7 +308,7 @@ void MainWindow::on_actionSave_Program_triggered()
             _dataModel->saveToFile(fileName);
 
     } catch (std::exception &e) {
-        qWarning(e.what());
+        qWarning() << e.what();
     }
 }
 
@@ -324,5 +324,5 @@ QString MainWindow::dayOfWeekToDisplayText(const int day)
     case 5: return "       SA";
     case 6: return "         SU";
     }
-    throw std::exception("Day is out of range!");
+    throw std::runtime_error("Day is out of range!");
 }

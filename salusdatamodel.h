@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QtMath>
 
 static const int g_MAX_PROGRAM_ITEMS_COUNT = 5;
 
@@ -37,7 +38,7 @@ public:
     std::pair<int/*Number*/,ProgramItem> currentProgramItem() const;
 
     /* Temporary Temperature Setup */
-    inline int getTemporaryTemperatureInt() { return floor(_temporaryTemperature); }
+    inline int getTemporaryTemperatureInt() { return qFloor(_temporaryTemperature); }
     inline int getTemporaryTemperatureFrac() { return (_temporaryTemperature - getTemporaryTemperatureInt())*10.0f; }
 
     inline void incrementTemporaryTemperature() { if (_temporaryTemperature < 30.0) _temporaryTemperature+= 0.5; }
