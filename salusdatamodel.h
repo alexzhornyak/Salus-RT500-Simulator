@@ -44,10 +44,10 @@ public:
     inline void incrementTemporaryTemperature() { if (_temporaryTemperature < 30.0) _temporaryTemperature+= 0.5; }
     inline void decrementTemporaryTemperature() { if (_temporaryTemperature < 30.0) _temporaryTemperature-= 0.5; }
 
-    inline const TemperatureMode temperatureMode() const { return _temperatureMode; }
-    inline const double temporaryTemperature() const { return _temporaryTemperature; }
-    inline const double freezeTemperature() const { return _freezeTemperature; }
-    inline const bool isFreezeMode() const { return _temperatureMode==tmdFreeze; }
+    inline TemperatureMode temperatureMode() const { return _temperatureMode; }
+    inline double temporaryTemperature() const { return _temporaryTemperature; }
+    inline double freezeTemperature() const { return _freezeTemperature; }
+    inline bool isFreezeMode() const { return _temperatureMode==tmdFreeze; }
 
     void resetTemporaryTemperature();
     inline void setNormalTemperatureMode() { _temperatureMode=tmdNormal; }
@@ -55,9 +55,9 @@ public:
     inline void flipFreezeTemperatureMode() { _temperatureMode=_temperatureMode==tmdFreeze ? tmdNormal : tmdFreeze; }
 
     /* Day and Time Setup */
-    inline const int &hour() const { return _hour; }
-    inline const int &minute() const { return _minute; }
-    inline const int &day() const { return _day; }
+    inline int hour() const { return _hour; }
+    inline int minute() const { return _minute; }
+    inline int day() const { return _day; }
 
     void incrementHour();
     void decrementHour();
@@ -88,8 +88,8 @@ public:
     void decrementProgramNumber();
 
     inline void resetProgramRecord() { _programRecord = std::make_pair(WorkDays,0); }
-    inline const WeekType getProgramWeekType() const { return _programRecord.first; }
-    inline const int getProgramNumber() const { return _programRecord.second; }
+    inline WeekType getProgramWeekType() const { return _programRecord.first; }
+    inline int getProgramNumber() const { return _programRecord.second; }
     inline const ProgramItem &programRecordToProgramItem() const {
         return _program[_programRecord.first][_programRecord.second]; }
 
